@@ -93,6 +93,7 @@ class settings_contra extends CI_Controller{
         
         if (isset($_POST['submit'])){
             
+<<<<<<< HEAD
             $data_cart= array (
                 'apptitle' => $_POST['apptitle'],
                 'receipt_start' => $_POST['receipt_start'],
@@ -130,6 +131,26 @@ class settings_contra extends CI_Controller{
                 $this->general();
                 
             } 
+=======
+            $data_cart=array (
+              
+                'apptitle' => $_POST('apptitle'),
+                'receipt_start' => $_POST('receipt_start'),
+                'language' => $_POST('language'),
+                'currency_symbol' => $_POST('currency_symbol'),
+                'streetaddress' => $_POST('streetaddress'),
+                'buildingaddress' => $_POST('buildingaddress'),
+                'unit' => $_POST('unit'),
+                'town' => $_POST('town'),
+                'country' => $_POST('country'),
+                'postalcode' => $_POST('postalcode'),
+                'header_message' => $_POST('header_message'),
+                'footer_message' => $_POST('footer_message')   
+            );
+            
+            print_r ($data_cart);
+            die();
+>>>>>>> 243b38ef3eeb1d7aed23e31bfa42f2ec8bc151dd
         }
         
     }
