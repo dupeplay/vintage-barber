@@ -89,5 +89,31 @@ class settings_contra extends CI_Controller{
        
     }
     
+    public function cart_edit(){
+        
+        if (isset($_POST['submit'])){
+            
+            $data_cart=array (
+              
+                'apptitle' => $_POST('apptitle'),
+                'receipt_start' => $_POST('receipt_start'),
+                'language' => $_POST('language'),
+                'currency_symbol' => $_POST('currency_symbol'),
+                'streetaddress' => $_POST('streetaddress'),
+                'buildingaddress' => $_POST('buildingaddress'),
+                'unit' => $_POST('unit'),
+                'town' => $_POST('town'),
+                'country' => $_POST('country'),
+                'postalcode' => $_POST('postalcode'),
+                'header_message' => $_POST('header_message'),
+                'footer_message' => $_POST('footer_message')   
+            );
+            
+            print_r ($data_cart);
+            die();
+        }
+        
+    }
+    
     
 }
