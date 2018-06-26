@@ -7,17 +7,23 @@
               <div class="card">
                 <div class="card-body">
                     
+                    <!--Session Flash Data-->
+                    <p>
+                        <?php if(isset($_SESSION['success'])){?>
+                            <div class="alert alert-success">
+                                    <?php echo $_SESSION['success'];?>
+                            </div>
+                        <?php }
+                            else{?>
+                            <div class="alert alert-danger">
+                                    <?php echo $_SESSION['error'];?>
+                            </div>
+                        <?php }?>
+                    </p>
                     
                     <div class="row">
                         <div class="col-md-3">
                           <h4 class="card-title">Company Info: </h4>
-                            <p>
-                              <?php if(isset($_SESSION['success'])){?>
-                                    <div class="alert alert-success">
-                                        <?php echo $_SESSION['success'];?>
-                                    </div>
-                              <?php }?>
-                            </p>
                         </div>
                         <div class="col-md-2">
                             
@@ -133,15 +139,13 @@
                       
                     <div class="row"> <!--Start of Row-->
                         
-                      <div class="col-md-9"> <!--Start of Form Row-->
+                        <div class="col-md-9"> <!--Start of Form Row-->
                         <div class="tab-content tab-body" id="profile-log-switch">
                             
                           <!--Start of Tab Section-->
                           <div class="tab-pane fade show active pr-3" id="user-profile-info" role="tabpanel" aria-labelledby="user-profile-info-tab">
                             
                           <!--Form Content Goes Here-->
-                              <div class="col-12 grid-margin">
-                                 <form class="form-sample" action="" method="POST">
                                      
                                     <div class="row">
                                         <div class="col-md-11">
@@ -167,7 +171,7 @@
                                                           </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                          <form action="" method="POST">
+                                                          <form action="<?php echo base_url();?>settings_contra/cart_edit" method="POST">
                                                             <div class="form-group">
                                                               <label for="apptitle" class="col-form-label">App title: </label>
                                                               <input name="apptitle" type="text" class="form-control" id="apptitle">
@@ -222,7 +226,7 @@
                                                               <input name="footer_message" type="text" class="form-control" id="footer_message">
                                                             </div>
                                                             <div class="modal-footer">
-                                                              <button type="button" name="submit" class="btn btn-success">Save Changes</button>
+                                                              <button type="submit" name="submit" class="btn btn-success">Save Changes</button>
                                                               <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                                                             </div>
                                                           </form>
@@ -230,6 +234,7 @@
                                                       </div>
                                                     </div>
                                                   </div>
+                                                </div>
                                                   <a href="#"><i class="ti-pencil-alt" data-toggle="modal" data-target="#general-info" 
                                                                  data-apptitle="<?php echo $cartoptions->apptitle;?>" 
                                                                  data-receipt_start="<?php echo $cartoptions->receipt_start;?>" 
@@ -245,7 +250,7 @@
                                             </div> 
                                             <!--Modal General Info Ends Here-->
                                         </div>
-                                    </div>                
+                                                    
                                         
                                      
                                    <div class="row">
@@ -280,12 +285,11 @@
                                        </div>
                                      </div>
                                    </div>
-                                     <p class="card-description">
+                                   <p class="card-description">
                                          <strong>
                                              Address On Receipt
                                          </strong>
-                                     </p>
-                                     </strong>
+                                   </p>
                                    <div class="row">
                                      <div class="col-md-6">
                                        <div class="form-group row">
@@ -412,34 +416,34 @@
                                     </div>
                                      
                                      
-                                   <div class="row">
-                                     <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
                                        <div class="form-group row">
                                          <label style="font-size:0.9rem;" class="col-sm-12 col-form-label"><strong>Missed (In Seconds): </strong>
                                              <?php echo $qmsoptions->settings_missed;?></label>
                                        </div>
                                      </div>
-                                     <div class="col-md-6">
+                                    <div class="col-md-6">
                                        <div class="form-group row">
                                          <label style="font-size:0.9rem;" class="col-sm-12 col-form-label"><strong>Overtime (In Seconds): </strong>
                                              <?php echo $qmsoptions->settings_overtime;?></label>
                                        </div>
-                                     </div>
-                                     <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
                                        <div class="form-group row">
                                          <label style="font-size:0.9rem;" class="col-sm-12 col-form-label"><strong>Appointment Timeout (In Minutes): </strong>
                                              <?php echo $qmsoptions->settings_appoint_timeout;?></label>
                                        </div>
-                                     </div>  
-                                   </div>
+                                    </div>  
+                                </div>
                                 </form>
                              </div>
 
                             <!--Q-Section Starts Here-->
                             
                           </div>
-                         </div><!--End of Tab Section 2-->
-                       </div>
+                        </div>
+                        <!--End of Tab Section 2-->
                       
                     <!--Start of Staffs Section-->    
                       <div class="col-md-3">

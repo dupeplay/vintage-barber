@@ -32,4 +32,9 @@ class settings_model extends CI_Model{
         return TRUE;
     }
     
+    public function cartopt_edit($data_cart){
+        $this->db->UPDATE('cartoptions', $data_cart);
+        return TRUE;
+    }
+    
 }

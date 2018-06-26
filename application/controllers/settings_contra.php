@@ -89,5 +89,50 @@ class settings_contra extends CI_Controller{
        
     }
     
+    public function cart_edit(){
+        
+        if (isset($_POST['submit'])){
+            
+            $data_cart= array (
+                'apptitle' => $_POST['apptitle'],
+                'receipt_start' => $_POST['receipt_start'],
+                'language' => $_POST['language'],
+                'currency_symbol' => $_POST['currency_symbol'],
+                'streetaddress' => $_POST['streetaddress'],
+                'building' => $_POST['buildingaddress'],
+                'unit' => $_POST['unit'],
+                'town' => $_POST['town'],
+                'country' => $_POST['country'],
+                'postalcode' => $_POST['postalcode'],
+                'header_message' => $_POST['header_message'],
+                'footer_message' => $_POST['footer_message']   
+            );
+            
+            //print_r ($data_cart);
+            //die();
+            
+            $this->load->model('settings_model');
+            $array_cart=$this->settings_model->cartopt_edit($data_cart);
+            
+             //Loading General Info
+            $this->load->model('settings_model');
+            $array_settings_model=$this->settings_model->general();
+            $settings_data['general']=$array_settings_model->row();
+            
+            if(isset($array_cart)){
+                $this->session->set_flashdata('success', "Suceessfully Updated");
+                $this->load->helper('url');
+                $this->general();  
+            }
+            else{
+                $this->session->set_flashdata('error', "Unsuccessful");
+                $this->load->helper('url');
+                $this->general();
+                
+            } 
+        }
+        
+    }
+    
     
 }
