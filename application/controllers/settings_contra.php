@@ -92,8 +92,7 @@ class settings_contra extends CI_Controller{
     public function cart_edit(){
         
         if (isset($_POST['submit'])){
-            
-<<<<<<< HEAD
+   
             $data_cart= array (
                 'apptitle' => $_POST['apptitle'],
                 'receipt_start' => $_POST['receipt_start'],
@@ -131,7 +130,7 @@ class settings_contra extends CI_Controller{
                 $this->general();
                 
             } 
-=======
+            
             $data_cart=array (
               
                 'apptitle' => $_POST('apptitle'),
@@ -150,7 +149,6 @@ class settings_contra extends CI_Controller{
             
             print_r ($data_cart);
             die();
->>>>>>> 243b38ef3eeb1d7aed23e31bfa42f2ec8bc151dd
         }
         
     }
